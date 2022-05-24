@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "784678933698",
+    "project_id": "desti-alert",
+    "storage_bucket": "desti-alert.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784678933698:android:ea4b494bd8da5f48e4d75b",
+        "android_client_info": {
+          "package_name": "com.example.desti_alert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784678933698-ggumd9vloe4t6g1bibv2v27tigjq8b66.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzMN3hfag4hwvnC6yX9CLIJD6vz8_ymlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784678933698-ggumd9vloe4t6g1bibv2v27tigjq8b66.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
