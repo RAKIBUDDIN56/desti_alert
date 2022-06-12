@@ -1,5 +1,3 @@
-import 'dart:js';
-
-import 'package:flutter/cupertino.dart';
-
-class Constants {}
+class Constants {
+  static const mapAPI = 'AIzaSyCzMN3hfag4hwvnC6yX9CLIJD6vz8_ymlE';
+}
