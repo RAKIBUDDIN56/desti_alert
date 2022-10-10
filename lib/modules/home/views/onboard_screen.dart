@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:geocoding/geocoding.dart';
 
 import 'package:map_picker/map_picker.dart';
+import 'package:http/http.dart' as http;
 
 class OnBoardScreen extends StatefulWidget {
   const OnBoardScreen({Key? key}) : super(key: key);
@@ -65,54 +66,71 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
         children: [
           //google map
           // ___googleMap(),
-          ___googleMapNew(),
+          // ___googleMapNew(),
 
-          Positioned(
-            top: 20,
-            left: 20,
-            child: IconButton(
-              onPressed: () {
-                scaffoldKey.currentState!.openDrawer();
-              },
-              icon: const Icon(
-                Icons.menu,
-                size: 35,
-                color: Colors.black,
-              ),
-            ),
-          ),
+          // Positioned(
+          //   top: 20,
+          //   left: 20,
+          //   child: IconButton(
+          //     onPressed: () {
+          //       scaffoldKey.currentState!.openDrawer();
+          //     },
+          //     icon: const Icon(
+          //       Icons.menu,
+          //       size: 35,
+          //       color: Colors.black,
+          //     ),
+          //   ),
+          // ),
 
+          // Positioned(
+          //     top: 40,
+          //     right: 40,
+          //     child: Container(
+          //       // height: 29,
+          //       // width: 20,
+          //       decoration: BoxDecoration(
+          //           color: Colors.white,
+          //           borderRadius: BorderRadius.circular(32),
+          //           border: Border.all(
+          //             color: Colors.green,
+          //           )),
+          //       child: Center(
+          //         child: IconButton(
+          //           onPressed: __locateCurrentPosition,
+          //           icon: const Icon(Icons.my_location),
+          //         ),
+          //       ),
+          //     )),
+          // Positioned(top: 100, right: 15, left: 15, child: ___searchWidget()),
+          // Positioned(
+          //     top: 170,
+          //     left: 50,
+          //     child: Visibility(
+          //       visible: isVisibleSearchButton,
+          //       child: Container(
+          //           height: 40,
+          //           width: 140,
+          //           decoration: BoxDecoration(color: Colors.white),
+          //           child: Text('Search')),
+          //     )),
           Positioned(
-              top: 40,
-              right: 40,
-              child: Container(
-                // height: 29,
-                // width: 20,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(32),
-                    border: Border.all(
-                      color: Colors.green,
-                    )),
-                child: Center(
-                  child: IconButton(
-                    onPressed: __locateCurrentPosition,
-                    icon: const Icon(Icons.my_location),
-                  ),
-                ),
-              )),
-          Positioned(top: 100, right: 15, left: 15, child: ___searchWidget()),
-          Positioned(
-              top: 170,
-              left: 50,
-              child: Visibility(
-                visible: isVisibleSearchButton,
-                child: Container(
-                    height: 40,
-                    width: 140,
-                    decoration: BoxDecoration(color: Colors.white),
-                    child: Text('Search')),
-              )),
+              top: 20,
+              left: 30,
+              child: ElevatedButton(
+                onPressed: () async {
+                  var url = Uri.parse(
+                      'https://api.unsplash.com/photos/?client_id=RXTeu_bHtY524uo4aJWTH70TH06pi01JhGo00EBM3Eo');
+                  var response = await http.get(url);
+                  print('Response status: ${response.statusCode}');
+                  print('Response body: ${response.body}');
+                  var lst = response.body[0];
+                  for (var item in response.body) {
+                    print(item);
+                  }
+                },
+                child: Text('Click'),
+              ))
         ],
       ),
     );
@@ -194,6 +212,8 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
       isVisibleSearchButton = !isVisibleSearchButton;
     });
   }
+
+  List ki = [];
 
 // new map
   Widget ___googleMapNew() {
